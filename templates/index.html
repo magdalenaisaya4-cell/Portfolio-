@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magdalena Isaya Makweta | Portfolio</title>
+    <meta name="description" content="Portfolio of Magdalena Isaya Makweta - Computer Science Graduate specialized in Python, Flask, MySQL, HTML, CSS & JavaScript.">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#b9dffd',
+                            300: '#7cc5fc',
+                            400: '#36a7f8',
+                            500: '#0c8ce9',
+                            600: '#006fc7',
+                            700: '#0158a1',
+                            800: '#064b85',
+                            900: '#0b3f6e',
+                        },
+                        accent: {
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Poppins', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --primary: #0c8ce9;
+            --primary-dark: #0158a1;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .font-display {
+            font-family: 'Poppins', 'Inter', sans-serif;
+        }
+
+        /* Smooth underline animation for nav links */
+        .nav-link-custom {
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        .nav-link-custom::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #0c8ce9;
+            transition: width 0.25s ease;
+        }
+        .nav-link-custom:hover::after,
+        .nav-link-custom.active::after {
+            width: 100%;
+        }
+
+        /* Hero gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0c8ce9 0%, #0158a1 50%, #4f46e5 100%);
+        }
+
+        /* Card hover effect */
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -12px rgba(12, 140, 233, 0.25);
+        }
+
+        /* Skill badge */
+        .skill-badge {
+            transition: all 0.2s ease;
+        }
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(12, 140, 233, 0.2);
+        }
+
+        /* Profile image ring */
+        .profile-ring {
+            box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.25),
+                        0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section spacing */
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        /* Contact form focus */
+        .form-control:focus {
+            border-color: #0c8ce9;
+            box-shadow: 0 0 0 0.2rem rgba(12, 140, 233, 0.2);
+        }
+
+        /* Mobile menu animation */
+        .navbar-collapse {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white/95 backdrop-blur sticky-top shadow-sm border-bottom">
+        <div class="container">
+            <a class="navbar-brand font-display fw-bold text-primary-600 d-flex align-items-center gap-2" href="#home">
+                <span class="bg-primary-600 text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width:36px;height:36px;font-size:1rem;">M</span>
+                <span class="d-none d-sm-inline">Magdalena</span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom px-3 fw-medium" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom px-3 fw-medium" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom px-3 fw-medium" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom px-3 fw-medium" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom px-3 fw-medium" href="#research">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom px-3 fw-medium" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-primary rounded-pill px-4 fw-medium shadow-sm" href="https://github.com/magdalenaisaya4-cell" target="_blank" rel="noopener">
+                            <i class="bi bi-github me-1"></i> GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="home" class="hero-gradient text-white py-5">
+        <div class="container py-4 py-lg-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 order-2 order-lg-1">
+                    <p class="text-white/80 fw-medium mb-2 tracking-wide text-uppercase" style="letter-spacing: 0.08em; font-size: 0.85rem;">
+                        Computer Science Graduate
+                    </p>
+                    <h1 class="font-display display-4 fw-bold mb-3 lh-sm">
+                        Hi, I'm <span class="text-white">Magdalena Isaya Makweta</span>
+                    </h1>
+                    <p class="lead text-white/90 mb-4" style="max-width: 540px;">
+                        Passionate about building practical web applications and intelligent systems with Python, Flask, and modern web technologies.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#projects" class="btn btn-light btn-lg rounded-pill px-4 fw-semibold shadow">
+                            View Projects <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg rounded-pill px-4 fw-semibold">
+                            Get in Touch
+                        </a>
+                    </div>
+
+                    <!-- Quick contact chips -->
+                    <div class="d-flex flex-wrap gap-3 mt-5 pt-2">
+                        <a href="mailto:magdalenaisaya4@gmail.com" class="text-white/90 text-decoration-none d-flex align-items-center gap-2 small">
+                            <i class="bi bi-envelope-fill"></i> magdalenaisaya4@gmail.com
+                        </a>
+                        <a href="tel:+255616348700" class="text-white/90 text-decoration-none d-flex align-items-center gap-2 small">
+                            <i class="bi bi-telephone-fill"></i> 0616 348 700
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profile Picture Placeholder -->
+                <div class="col-lg-5 order-1 order-lg-2 text-center">
+                    <div class="position-relative d-inline-block">
+                        <!-- Replace the src below with your actual profile photo path, e.g. /static/img/profile.jpg -->
+                        <img src="static/img/profile.jpg"
+                             alt="Magdalena Isaya Makweta"
+                             class="rounded-circle profile-ring img-fluid"
+                             style="width: 280px; height: 280px; object-fit: cover; background: #fff;">
+                        <!-- Decorative circle -->
+                        <div class="position-absolute top-0 start-0 w-100 h-100 rounded-circle border border-3 border-white/30" style="transform: scale(1.08);"></div>
+                    </div>
+                    <p class="mt-3 small text-white/70">
+                        <i class="bi bi-image me-1"></i>
+                        Replace this image with your photo in <code class="text-white/80">static/img/profile.jpg</code>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about" class="py-5 py-lg-6 bg-white">
+        <div class="container py-4">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <span class="badge bg-primary-100 text-primary-700 rounded-pill px-3 py-2 mb-3 fw-medium">
+                        About Me
+                    </span>
+                    <h2 class="font-display fw-bold display-6 mb-3">A bit about my journey</h2>
+                    <p class="text-slate-600 lead">
+                        I graduated with a Bachelor of Science in Computer Science from Ruaha Catholic University in 2026.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <div class="bg-slate-50 rounded-4 p-4 p-md-5 h-100 border">
+                        <h3 class="font-display fw-semibold h4 mb-3">
+                            <i class="bi bi-mortarboard-fill text-primary-600 me-2"></i>
+                            Education
+                        </h3>
+                        <p class="mb-1 fw-semibold">BSc Computer Science</p>
+                        <p class="text-slate-600 mb-2">Ruaha Catholic University</p>
+                        <p class="text-slate-500 small mb-0">
+                            <i class="bi bi-calendar3 me-1"></i> Graduated 2026
+                        </p>
+                        <hr class="my-4">
+                        <p class="text-slate-600 mb-0">
+                            Specialized in building practical solutions using <strong>Python</strong>, <strong>Flask</strong>, <strong>MySQL</strong>, and modern frontend technologies (<strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>).
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-primary-50 rounded-4 p-4 p-md-5 h-100 border border-primary-100">
+                        <h3 class="font-display fw-semibold h4 mb-3">
+                            <i class="bi bi-lightbulb-fill text-primary-600 me-2"></i>
+                            What I do
+                        </h3>
+                        <ul class="list-unstyled mb-0">
+                            <li class="d-flex gap-3 mb-3">
+                                <i class="bi bi-check-circle-fill text-primary-600 mt-1"></i>
+                                <span>Develop full-stack web applications with Flask and MySQL</span>
+                            </li>
+                            <li class="d-flex gap-3 mb-3">
+                                <i class="bi bi-check-circle-fill text-primary-600 mt-1"></i>
+                                <span>Build responsive, user-friendly interfaces</span>
+                            </li>
+                            <li class="d-flex gap-3 mb-3">
+                                <i class="bi bi-check-circle-fill text-primary-600 mt-1"></i>
+                                <span>Create intelligent offline mobile solutions using OCR & barcode scanning</span>
+                            </li>
+                            <li class="d-flex gap-3">
+                                <i class="bi bi-check-circle-fill text-primary-600 mt-1"></i>
+                                <span>Conduct applied research in computer science</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS SECTION ========== -->
+    <section id="skills" class="py-5 py-lg-6 bg-slate-50">
+        <div class="container py-4">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <span class="badge bg-primary-100 text-primary-700 rounded-pill px-3 py-2 mb-3 fw-medium">
+                        Skills
+                    </span>
+                    <h2 class="font-display fw-bold display-6 mb-3">Technologies I work with</h2>
+                    <p class="text-slate-600">Core technologies and tools I use to build applications.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Backend -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="bg-white rounded-4 p-4 h-100 shadow-sm border text-center">
+                        <div class="bg-primary-100 text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:56px;height:56px;">
+                            <i class="bi bi-server fs-4"></i>
+                        </div>
+                        <h4 class="font-display fw-semibold h5 mb-3">Backend</h4>
+                        <div class="d-flex flex-wrap justify-content-center gap-2">
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">Python</span>
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">Flask</span>
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frontend -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="bg-white rounded-4 p-4 h-100 shadow-sm border text-center">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:56px;height:56px;">
+                            <i class="bi bi-layout-text-window-reverse fs-4"></i>
+                        </div>
+                        <h4 class="font-display fw-semibold h5 mb-3">Frontend</h4>
+                        <div class="d-flex flex-wrap justify-content-center gap-2">
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">HTML5</span>
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">CSS3</span>
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">JavaScript</span>
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">Bootstrap</span>
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="bg-white rounded-4 p-4 h-100 shadow-sm border text-center">
+                        <div class="bg-emerald-100 text-emerald-600 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:56px;height:56px;">
+                            <i class="bi bi-tools fs-4"></i>
+                        </div>
+                        <h4 class="font-display fw-semibold h5 mb-3">Other</h4>
+                        <div class="d-flex flex-wrap justify-content-center gap-2">
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">Android (OCR)</span>
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">Barcode Scanning</span>
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">Git & GitHub</span>
+                            <span class="skill-badge badge bg-slate-100 text-slate-700 px-3 py-2 rounded-pill">Research</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS SECTION ========== -->
+    <section id="projects" class="py-5 py-lg-6 bg-white">
+        <div class="container py-4">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <span class="badge bg-primary-100 text-primary-700 rounded-pill px-3 py-2 mb-3 fw-medium">
+                        Projects
+                    </span>
+                    <h2 class="font-display fw-bold display-6 mb-3">Featured Work</h2>
+                    <p class="text-slate-600">A selection of projects I've built. Links will be added soon.</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                {% for project in projects %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex align-items-start justify-content-between mb-3">
+                                <div class="bg-primary-100 text-primary-600 rounded-3 d-flex align-items-center justify-content-center" style="width:48px;height:48px;">
+                                    <i class="bi bi-folder2-open fs-5"></i>
+                                </div>
+                                <span class="badge bg-slate-100 text-slate-500 rounded-pill">Coming soon</span>
+                            </div>
+                            <h3 class="font-display fw-semibold h5 mb-2">{{ project.title }}</h3>
+                            <p class="text-slate-600 small flex-grow-1 mb-3">{{ project.description }}</p>
+                            <a href="{{ project.link }}" class="btn btn-outline-primary btn-sm rounded-pill stretched-link {% if project.link == '#' %}disabled{% endif %}" {% if project.link != '#' %}target="_blank" rel="noopener"{% endif %}>
+                                {% if project.link == '#' %}
+                                    Link coming soon
+                                {% else %}
+                                    View Project <i class="bi bi-box-arrow-up-right ms-1"></i>
+                                {% endif %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== RESEARCH SECTION ========== -->
+    <section id="research" class="py-5 py-lg-6 bg-slate-50">
+        <div class="container py-4">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <span class="badge bg-primary-100 text-primary-700 rounded-pill px-3 py-2 mb-3 fw-medium">
+                        Research
+                    </span>
+                    <h2 class="font-display fw-bold display-6 mb-3">Published Research</h2>
+                    <p class="text-slate-600">Peer-reviewed paper published on ISROSET.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="bg-white rounded-4 shadow-sm border p-4 p-md-5">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-md-auto text-center">
+                                <div class="bg-primary-100 text-primary-600 rounded-4 d-inline-flex align-items-center justify-content-center" style="width:80px;height:80px;">
+                                    <i class="bi bi-file-earmark-text fs-1"></i>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p class="text-primary-600 small fw-semibold mb-1 text-uppercase" style="letter-spacing:0.05em;">
+                                    {{ research.publisher }}
+                                </p>
+                                <h3 class="font-display fw-semibold h4 mb-2">{{ research.title }}</h3>
+                                <p class="text-slate-600 mb-3">{{ research.description }}</p>
+                                <a href="{{ research.link }}" target="_blank" rel="noopener" class="btn btn-primary rounded-pill px-4">
+                                    <i class="bi bi-file-pdf me-2"></i> View Research Paper
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="py-5 py-lg-6 bg-white">
+        <div class="container py-4">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <span class="badge bg-primary-100 text-primary-700 rounded-pill px-3 py-2 mb-3 fw-medium">
+                        Contact
+                    </span>
+                    <h2 class="font-display fw-bold display-6 mb-3">Let's connect</h2>
+                    <p class="text-slate-600">Feel free to reach out for collaborations, opportunities, or just to say hello.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Contact Cards -->
+                <div class="col-md-4">
+                    <a href="mailto:magdalenaisaya4@gmail.com" class="text-decoration-none">
+                        <div class="bg-slate-50 rounded-4 p-4 text-center h-100 border project-card">
+                            <div class="bg-primary-100 text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:56px;height:56px;">
+                                <i class="bi bi-envelope-fill fs-4"></i>
+                            </div>
+                            <h4 class="font-display fw-semibold h6 text-slate-800 mb-1">Email</h4>
+                            <p class="text-slate-600 small mb-0">magdalenaisaya4@gmail.com</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="tel:+255616348700" class="text-decoration-none">
+                        <div class="bg-slate-50 rounded-4 p-4 text-center h-100 border project-card">
+                            <div class="bg-primary-100 text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:56px;height:56px;">
+                                <i class="bi bi-telephone-fill fs-4"></i>
+                            </div>
+                            <h4 class="font-display fw-semibold h6 text-slate-800 mb-1">Phone</h4>
+                            <p class="text-slate-600 small mb-0">0616 348 700</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://github.com/magdalenaisaya4-cell" target="_blank" rel="noopener" class="text-decoration-none">
+                        <div class="bg-slate-50 rounded-4 p-4 text-center h-100 border project-card">
+                            <div class="bg-primary-100 text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:56px;height:56px;">
+                                <i class="bi bi-github fs-4"></i>
+                            </div>
+                            <h4 class="font-display fw-semibold h6 text-slate-800 mb-1">GitHub</h4>
+                            <p class="text-slate-600 small mb-0">magdalenaisaya4-cell</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-slate-900 text-slate-300 py-5">
+        <div class="container">
+            <div class="row align-items-center g-3">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-1 fw-semibold text-white font-display">Magdalena Isaya Makweta</p>
+                    <p class="small mb-0 text-slate-400">Computer Science Graduate · Ruaha Catholic University</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="d-flex justify-content-center justify-content-md-end gap-3 mb-2">
+                        <a href="https://github.com/magdalenaisaya4-cell" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition" aria-label="GitHub">
+                            <i class="bi bi-github fs-5"></i>
+                        </a>
+                        <a href="mailto:magdalenaisaya4@gmail.com" class="text-slate-400 hover:text-white transition" aria-label="Email">
+                            <i class="bi bi-envelope-fill fs-5"></i>
+                        </a>
+                        <a href="tel:+255616348700" class="text-slate-400 hover:text-white transition" aria-label="Phone">
+                            <i class="bi bi-telephone-fill fs-5"></i>
+                        </a>
+                    </div>
+                    <p class="small text-slate-500 mb-0">
+                        &copy; 2026 Magdalena Isaya Makweta. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link-custom');
+
+        function updateActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active', 'text-primary-600');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active', 'text-primary-600');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    bootstrap.Collapse.getInstance(navbarCollapse)?.hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
