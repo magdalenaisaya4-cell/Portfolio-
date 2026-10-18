@@ -51,8 +51,3 @@ Edit the `PROJECTS` list in `app.py` and replace `"#"` with the real project URL
 - **Icons:** Bootstrap Icons
 - **Fonts:** Inter + Poppins (Google Fonts)
 
-## Contact
-
-- Email: magdalenaisaya4@gmail.com
-- Phone: 0616 348 700
-- GitHub: https://github.com/magdalenaisaya4-cell
